@@ -3,9 +3,11 @@ import joblib
 from sklearn.metrics import accuracy_score 
 from sklearn.model_selection import train_test_split
 import streamlit as st
+# from sklearn.naive_bayes import GaussianNB
+
 model = joblib.load("liveModelV1.pk1")
-data = pd.read_csv('mobile_price_range_data.csv')
-x = data.iloc[: ,-1]
+data = pd.read_csv('mobile_price_range_data (1).csv')
+x = data.iloc[: ,:-1]
 y = data.iloc[:, -1]
 x_train , x_test, y_train, y_test = train_test_split (x , y, test_size =0.2, random_state = 42)
 #make prediction for x_test
